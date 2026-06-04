@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://b0dfy4l4ejbsv"]
+
+[ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://Add Ons/proto_controller.tscn" id="1_0xm2m"]
+[ext_resource type="Script" uid="uid://bjl2s6b4tahpe" path="res://Add Ons/proto_controller.gd" id="2_h2yge"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0xm2m"]
+sky_top_color = Color(0.4509804, 0.5254902, 0.69803923, 1)
+sky_horizon_color = Color(0.74578595, 0.78500164, 0.80853105, 1)
+ground_bottom_color = Color(0.13725491, 0.21960784, 0.14117648, 1)
+ground_horizon_color = Color(0.74578595, 0.78500164, 0.80853105, 1)
+
+[sub_resource type="Sky" id="Sky_h2yge"]
+sky_material = SubResource("ProceduralSkyMaterial_0xm2m")
+
+[sub_resource type="Environment" id="Environment_1bvp3"]
+background_mode = 2
+sky = SubResource("Sky_h2yge")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="Main" type="Node3D" unique_id=247850730]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=975484857]
+environment = SubResource("Environment_1bvp3")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=369913]
+transform = Transform3D(-0.9945219, 0.104528435, 4.569083e-09, 0, -4.371139e-08, 1, 0.104528435, 0.9945219, 4.3471932e-08, -2.5440655, 10.094079, 31.396582)
+light_color = Color(1, 0.9137255, 0.68235296, 1)
+light_energy = 3.249
+shadow_enabled = true
+directional_shadow_max_distance = 1.0
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1061274210]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.881594, 0.04336548, 43.48417)
+use_collision = true
+size = Vector3(129.51492, 0.07989502, 180.42482)
+
+[node name="ProtoController" parent="." unique_id=1260261386 instance=ExtResource("1_0xm2m")]
+transform = Transform3D(-0.3758997, 0.0036084834, -0.9266533, 0.009599149, 0.99995404, 0, 0.92661077, -0.008895083, -0.375917, 2.2815392, 1.9962916, 0.62970114)
+script = ExtResource("2_h2yge")
