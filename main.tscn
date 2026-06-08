@@ -18,23 +18,60 @@ sky = SubResource("Sky_h2yge")
 tonemap_mode = 2
 glow_enabled = true
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0xm2m"]
+albedo_color = Color(0.9999998, 0.24951378, 0.14133838, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h2yge"]
+albedo_color = Color(1, 0.7607843, 0.4, 1)
+
 [node name="Main" type="Node3D" unique_id=247850730]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=975484857]
 environment = SubResource("Environment_1bvp3")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=369913]
-transform = Transform3D(-0.9945219, 0.104528435, 4.569083e-09, 0, -4.371139e-08, 1, 0.104528435, 0.9945219, 4.3471932e-08, -2.5440655, 10.094079, 31.396582)
+transform = Transform3D(-0.9945219, 0.104528435, 4.569083e-09, 0, -4.371139e-08, 1, 0.104528435, 0.9945219, 4.3471932e-08, -838.3579, 118.11288, 2657.492)
 light_color = Color(1, 0.9137255, 0.68235296, 1)
 light_energy = 3.249
 shadow_enabled = true
 directional_shadow_max_distance = 1.0
 
-[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1061274210]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.881594, 0.04336548, 43.48417)
+[node name="Floor" type="CSGBox3D" parent="." unique_id=1061274210]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.843739, 0.04336548, -13.408958)
+material_override = SubResource("StandardMaterial3D_0xm2m")
 use_collision = true
-size = Vector3(129.51492, 0.07989502, 180.42482)
+size = Vector3(181.67938, 0.07989502, 193.91248)
 
 [node name="ProtoController" parent="." unique_id=1260261386 instance=ExtResource("1_0xm2m")]
-transform = Transform3D(-0.3758997, 0.0036084834, -0.9266533, 0.009599149, 0.99995404, 0, 0.92661077, -0.008895083, -0.375917, 2.2815392, 1.9962916, 0.62970114)
+transform = Transform3D(-0.3758997, 0.0036084834, -0.9266533, 0.009599149, 0.99995404, 0, 0.92661077, -0.008895083, -0.375917, 2.2815392, 1.9962916, 36.097054)
 script = ExtResource("2_h2yge")
+
+[node name="Wall 4" type="CSGBox3D" parent="." unique_id=340804952]
+transform = Transform3D(-0.011699288, 0.0011404823, 0.99993765, 0.9998706, -0.01105039, 0.011711284, 0.011062888, 0.99992716, -0.0010110572, -13.5421095, 23.641705, 83.895805)
+use_collision = true
+size = Vector3(50.077293, 0.46306896, 180.79054)
+
+[node name="Wall 3" type="CSGBox3D" parent="." unique_id=74058396]
+transform = Transform3D(0.002653176, 0.00030164246, 1, 0.99989927, -0.014363868, -0.0026485492, 0.014363021, 0.999897, -0.00033972476, -13.536125, 23.875738, -110.034966)
+use_collision = true
+size = Vector3(48.238464, 0.46306896, 181.28528)
+
+[node name="Wall 2" type="CSGBox3D" parent="." unique_id=2094214885]
+transform = Transform3D(-0.027799489, -0.9996135, 0, 0.9996135, -0.027799489, 0, 0, 0, 1, 76.7104, 24.799759, -13.413147)
+use_collision = true
+size = Vector3(48.238464, 0.46306896, 194.56458)
+
+[node name="Wall 1" type="CSGBox3D" parent="." unique_id=422458927]
+transform = Transform3D(-0.05657085, 0.9983986, 0, -0.9983986, -0.05657085, 0, 0, 0, 1, -103.19608, 24.079771, -13.498047)
+use_collision = true
+size = Vector3(48.238464, 0.46306896, 194.14502)
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="." unique_id=2006087391]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 69.05616, -4.4521027, 72.21582)
+material_override = SubResource("StandardMaterial3D_h2yge")
+radius = 25.906158
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGSphere3D" unique_id=97850139]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.018723, -10.82143, 1.6507492)
+material_override = SubResource("StandardMaterial3D_h2yge")
+radius = 25.906158
