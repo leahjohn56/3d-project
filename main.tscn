@@ -30,6 +30,9 @@ albedo_color = Color(1, 0.7607843, 0.4, 1)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lquwl"]
 albedo_color = Color(0.7643448, 0, 0.10845875, 1)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_0xm2m"]
+size = Vector3(0.001, 17.285095, 8.124023)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7mycd"]
 albedo_color = Color(1, 0.03529412, 1, 1)
 
@@ -158,17 +161,35 @@ material_override = SubResource("StandardMaterial3D_h2yge")
 use_collision = true
 radius = 21.029709
 
+[node name="Portal" type="CSGBox3D" parent="." unique_id=660340920]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -102.32864, 72.52671, -75.242455)
+material_override = SubResource("StandardMaterial3D_lquwl")
+use_collision = true
+size = Vector3(2.1672735, 20.546768, 10.934408)
+
+[node name="Area3D" type="Area3D" parent="Portal" unique_id=1229063526]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Portal/Area3D" unique_id=1769802973]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.961998, -0.57040405, -0.08251953)
+shape = SubResource("BoxShape3D_0xm2m")
+
+[node name="Exit" type="CSGBox3D" parent="." unique_id=870467262]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -100.78462, 72.38278, -75.376595)
+material_override = SubResource("StandardMaterial3D_7mycd")
+use_collision = true
+size = Vector3(0.65732104, 20.695911, 10.755227)
+
+[node name="Cutout" type="CSGCylinder3D" parent="Exit" unique_id=1233138832]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1953583, -0.52679443, 0.2659073)
+operation = 2
+radius = 4.4086914
+height = 17.356567
+
 [node name="Lasers" type="CSGBox3D" parent="." unique_id=1437208008]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 68.043, 26.725449, -15.562605)
 material_override = SubResource("StandardMaterial3D_lquwl")
 use_collision = true
 size = Vector3(10.6779175, 0.64844924, 2.4453735)
-
-[node name="Lasers2" type="CSGBox3D" parent="Lasers" unique_id=660340920]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -170.37164, 45.80126, -59.679848)
-material_override = SubResource("StandardMaterial3D_lquwl")
-use_collision = true
-size = Vector3(2.1672735, 20.546768, 10.934408)
 
 [node name="Lasers3" type="CSGBox3D" parent="Lasers" unique_id=297911942]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -110.396065, 23.784233, -45.271255)
@@ -205,18 +226,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -166.3116, 35.44649, -95.6365
 material_override = SubResource("StandardMaterial3D_7mycd")
 use_collision = true
 size = Vector3(12.948034, 1.4139578, 51.92115)
-
-[node name="Platforms11" type="CSGBox3D" parent="Platforms" unique_id=870467262]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -168.15326, 46.054295, -91.54947)
-material_override = SubResource("StandardMaterial3D_7mycd")
-use_collision = true
-size = Vector3(0.65732104, 20.695911, 10.755227)
-
-[node name="Cutout" type="CSGCylinder3D" parent="Platforms/Platforms11" unique_id=1233138832]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1953583, 0.67529297, 0.2659073)
-operation = 2
-radius = 4.4086914
-height = 14.952393
 
 [node name="Platforms9" type="CSGBox3D" parent="Platforms" unique_id=120214632]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -153.3392, 31.195644, -90.22687)
@@ -394,3 +403,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.768391, 2.6918755, -5.116
 material_override = SubResource("StandardMaterial3D_kek77")
 use_collision = true
 radius = 4.9594502
+
+[node name="Win Screen" type="Label3D" parent="." unique_id=924183455]
+transform = Transform3D(0.097860776, 0, 0.9952001, 0, 1, 0, -0.9952001, 0, 0.097860776, -100.39926, 68.19714, -75.09432)
+text = "You win!"
+font_size = 300
